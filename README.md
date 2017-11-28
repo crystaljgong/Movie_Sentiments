@@ -24,7 +24,7 @@ Contains preliminary code for finetuning VGG-Face on FER2013. We are currently e
 ### Frames from videos
 `./all-data/vids/imgs/` contains frames from several Youtube videos using VLC on command line, with the following command:
 
-```vlc.exe "pathtovideo" --video-filter=scene --vout=dummy --start-time=300 --stop-time=600 --scene-ratio=250 --scene-path=”pathtosaveimages” vlc://quit```
+```/Applications/VLC.app/Contents/MacOS/VLC  "pathtovideo" --video-filter=scene --vout=dummy --start-time=300 --stop-time=600 --scene-ratio=250 --scene-path=”pathtosaveimages” vlc://quit```
 
 Instructions from this page: https://www.raymond.cc/blog/extract-video-frames-to-images-using-vlc-media-player/
 
