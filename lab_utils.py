@@ -4,6 +4,7 @@ import numpy as np
 import IPython.display
 from io import BytesIO
 import torchvision.transforms as transforms
+import matplotlib.pyplot as plt
 
 class UnNormalize(object):
     def __init__(self, mean, std):
@@ -28,3 +29,26 @@ def show_image(input_image):
     else:
         input_image.save(f, 'png')
     IPython.display.display(IPython.display.Image(data = f.getvalue()))
+
+def plot_loss(trainingLoss, validationLoss, epochs):
+    plt.figure(1)
+    plt.plot(epochs,trainingLoss, label='Training loss')
+    plt.plot(validationLoss, label='Validation loss')
+    plt.legend(loc='upper right')
+    plt.xlabel("Epoch")
+    plt.ylabel("Loss")
+    plt.title("Training and validation loss over each epoch")
+
+def plot_accuracy(trainingAccuracy, validationAccuracy, epochs):
+    plt.figure(2)
+    plt.plot(epochs, trainingAccuracy, label='Training accuracy')
+    plt.plot(validationAccuracy, label='Validation accuracy')
+    plt.legend(loc='lower right')
+    plt.xlabel("Epoch")
+    plt.ylabel("Accuracy")
+    plt.title("Training and validation accuracy over each epoch")
+    
+def generate_plots(trainingLoss, validationLoss, trainingAccuracy, validationAccuracy, epochs):
+    epochs = np.arange(0,epochs)
+    plot_loss(trainingLoss, validationLoss, epochs)
+    plot_accuracy(trainingAccuracy, validationAccuracy, epochs)
